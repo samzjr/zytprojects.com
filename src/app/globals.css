@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@source "../**/*.{js,ts,jsx,tsx,mdx}";
+@source "../../public/**/*.html";
+
 @layer base {
   :root {
     --font-grotesk: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

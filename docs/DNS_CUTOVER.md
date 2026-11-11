@@ -12,9 +12,13 @@ Use this when the Vercel preview looks right and you are ready to serve **zytpro
 
 Vercel will show the DNS records required for your registrar.
 
-## 2. Typical DNS records
+## 2. Current DNS (Cargo)
 
-At whoever hosts DNS for `zytprojects.com` (Cargo, Cloudflare, Namecheap, etc.):
+As of migration setup, `zytprojects.com` uses **Cargo nameservers** (`ns1.cargo.site`, `ns2.cargo.site`) and points at Cargo’s infrastructure. You will change these records (or move DNS to another provider) when cutting over.
+
+## 3. Typical Vercel DNS records
+
+At whoever hosts DNS for `zytprojects.com` (Cargo DNS panel, Cloudflare, Namecheap, etc.):
 
 | Host | Type | Value |
 |------|------|--------|
@@ -25,14 +29,14 @@ Remove old Cargo A/CNAME records when you cut over, or traffic will keep hitting
 
 Propagation usually takes minutes; allow up to 48 hours globally.
 
-## 3. Verification checklist
+## 4. Verification checklist
 
 - [ ] Home, Archive, Information load over HTTPS
 - [ ] All four case studies: images and looping videos
 - [ ] `/resume.pdf` opens
 - [ ] Instagram + email links in footer
 
-## 4. After cutover
+## 5. After cutover
 
 - Keep Cargo live for ~1 week only if you want a fallback; otherwise cancel/downgrade to stop paying for unused hosting.
 - Set `NEXT_PUBLIC_SITE_URL=https://zytprojects.com` in Vercel env if you use absolute URLs in metadata (optional; default is already zytprojects.com).

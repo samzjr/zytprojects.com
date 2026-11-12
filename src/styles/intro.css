@@ -1,0 +1,112 @@
+/*
+ * Intro overlay (src/components/IntroOverlay.tsx). Timeline, 2.5s:
+ *   0.57s–1.98s  logo reveals left to right out of a soft blur (paced like the Jitter clip)
+ *   1.98s–2.00s  hold
+ *   2.00s–2.45s  logo zooms out (shrinks to 55%), fully faded by ~2.3s
+ *   2.10s–2.50s  white screen fades out, revealing the page
+ * Tweak the numbers below to change the timing. Logo size: .intro__mark width.
+ */
+
+/* Animatable reveal position (sweeps from just before the logo to just past it) */
+@property --reveal {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: -25%;
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  pointer-events: none;
+  animation: intro-out 0.4s cubic-bezier(0.65, 0, 0.35, 1) 2.1s forwards;
+}
+
+.intro__mark {
+  position: relative;
+  width: min(480px, 70vw);
+  --reveal: -25%;
+  /* even pace: the sweep crosses the logo from ~0.57s to ~1.98s, like the Jitter clip;
+     then it zooms out (shrinks away) while the screen fades */
+  animation:
+    intro-reveal 1.9s linear 0.25s forwards,
+    intro-zoom-out 0.45s cubic-bezier(0.4, 0, 0.2, 1) 2s forwards;
+}
+
+.intro__logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Sharp logo: visible behind the sweep, soft 12% edge */
+.intro__logo--sharp {
+  position: relative;
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(var(--reveal) - 12%), transparent var(--reveal));
+  mask-image: linear-gradient(90deg, #000 calc(var(--reveal) - 12%), transparent var(--reveal));
+}
+
+/* Blurred logo: only a band around/just ahead of the sweep, so letters arrive blurry then sharpen */
+.intro__logo--blur {
+  position: absolute;
+  inset: 0;
+  filter: blur(9px);
+  opacity: 0.6;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent calc(var(--reveal) - 14%),
+    #000 calc(var(--reveal) + 2%),
+    transparent calc(var(--reveal) + 20%)
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent calc(var(--reveal) - 14%),
+    #000 calc(var(--reveal) + 2%),
+    transparent calc(var(--reveal) + 20%)
+  );
+}
+
+/* Optional video intro (INTRO_VIDEO in IntroOverlay.tsx) */
+.intro__video {
+  width: min(70vw, 960px);
+  height: auto;
+}
+
+@keyframes intro-reveal {
+  to {
+    --reveal: 125%;
+  }
+}
+
+/* logo is gone (~2.3s) before the white screen is mostly faded, so it never sits over the page */
+@keyframes intro-zoom-out {
+  65% {
+    opacity: 0;
+  }
+  to {
+    transform: scale(0.55);
+    opacity: 0;
+  }
+}
+
+@keyframes intro-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Not playing this time (already seen this session), or reduced motion: skip */
+html[data-intro-seen] .intro {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    display: none;
+  }
+}

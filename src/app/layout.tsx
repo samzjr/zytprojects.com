@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import DevSourceBanner from "@/components/DevSourceBanner";
+import IntroOverlay, { IntroScript } from "@/components/IntroOverlay";
 import "./globals.css";
 import {
   SITE_DESCRIPTION,
@@ -40,8 +41,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full" suppressHydrationWarning>
+      <head>
+        <IntroScript />
+      </head>
       <body className="font-sans min-h-full flex flex-col bg-white text-[#111111] antialiased selection:bg-neutral-200 selection:text-black">
+        <IntroOverlay />
         {children}
         <DevSourceBanner />
       </body>

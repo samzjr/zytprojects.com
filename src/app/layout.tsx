@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import DevSourceBanner from "@/components/DevSourceBanner";
 import "./globals.css";
 import {
   SITE_DESCRIPTION,
@@ -40,8 +41,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
-      <body className="min-h-full flex flex-col bg-white text-[#111111] antialiased selection:bg-neutral-200 selection:text-black">
+      <body className="font-sans min-h-full flex flex-col bg-white text-[#111111] antialiased selection:bg-neutral-200 selection:text-black">
         {children}
+        <DevSourceBanner />
       </body>
     </html>
   );

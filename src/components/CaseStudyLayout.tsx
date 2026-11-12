@@ -57,34 +57,36 @@ export default function CaseStudyLayout({
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 py-8 border-y border-neutral-200 mb-16">
-          <div className="md:col-span-6 space-y-2">
-            <h1 className="text-2xl md:text-3xl font-semibold text-black tracking-tight">
-              {title}
-            </h1>
-            <p className="text-neutral-600 text-[15px] leading-relaxed max-w-xl">
+        <div className="zyt-cargo-type grid grid-cols-1 md:grid-cols-12 gap-8 py-8 border-y border-neutral-200 mb-16">
+          <div className="md:col-span-6 space-y-4 max-w-xl">
+            <p>
+              <strong>{title}</strong>
+            </p>
+            <p>
+              <strong>Synopsis</strong>
+              <br />
               {synopsis}
             </p>
           </div>
-          <div className="md:col-span-3 space-y-1 text-[14px]">
+          <div className="md:col-span-3 space-y-4">
             {metadataAside ?? (
-              <>
-                <span className="text-xs uppercase tracking-wider text-neutral-400 font-medium block">
-                  Capabilities
-                </span>
-                <p className="text-black font-medium">{capabilities}</p>
-              </>
+              <p>
+                <strong>Capabilities</strong>
+                <br />
+                {capabilities}
+              </p>
             )}
           </div>
-          <div className="md:col-span-3 space-y-1 text-[14px]">
-            <span className="text-xs uppercase tracking-wider text-neutral-400 font-medium block">
-              Date
-            </span>
-            <p className="text-black font-medium">{date}</p>
+          <div className="md:col-span-3">
+            <p>
+              <strong>Date</strong>
+              <br />
+              {date}
+            </p>
           </div>
         </div>
 
-        <div className="space-y-20 max-w-5xl mx-auto">{children}</div>
+        <div className="zyt-cargo-type space-y-20 max-w-5xl mx-auto">{children}</div>
 
         <div className="mt-24 pt-8 border-t border-neutral-200 flex justify-between items-center text-sm">
           {prevHref && prevLabel ? (

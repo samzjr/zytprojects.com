@@ -1,0 +1,102 @@
+/*
+ * Typography from zytprojects.com (Cargo site custom CSS).
+ * Font stack only — Diatype Variable is Cargo UI and not included here.
+ */
+
+:root {
+  --cargo-base-size: 12.7152px;
+  --cargo-swatch-1: rgba(0, 0, 0, 0.85);
+  --cargo-swatch-2: rgba(0, 0, 0, 0.75);
+  --cargo-swatch-3: rgba(0, 0, 0, 0.6);
+  --font-helvetica-regular: "Helvetica Neue", Helvetica, sans-serif, "Helvetica Neue Regular";
+  --font-helvetica-light: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica,
+    sans-serif;
+}
+
+.zyt-cargo-type {
+  font-family: var(--font-helvetica-light);
+  font-size: calc(var(--cargo-base-size) * 1.5);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: #000;
+}
+
+.zyt-cargo-type h1 {
+  font-family: var(--font-helvetica-regular);
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  font-size: calc(var(--cargo-base-size) * 3.5);
+  line-height: 1.5;
+  color: var(--cargo-swatch-1);
+  letter-spacing: 0;
+}
+
+.zyt-cargo-type h2 {
+  font-family: var(--font-helvetica-light);
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  color: #000;
+  font-size: calc(var(--cargo-base-size) * 2.5);
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.zyt-cargo-type h3 {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  line-height: inherit;
+  margin: 0;
+  color: #000;
+}
+
+.zyt-cargo-type p {
+  margin: 0;
+}
+
+.zyt-cargo-type strong {
+  font-weight: 700;
+}
+
+/* Secondary line under a section title (Cargo ~1.8rem) */
+.zyt-cargo-type .cargo-subtitle {
+  font-size: calc(var(--cargo-base-size) * 1.8);
+  line-height: 1.2;
+  font-weight: 400;
+  color: #000;
+}
+
+.zyt-cargo-type .caption,
+.zyt-cargo-type figcaption {
+  font-size: calc(var(--cargo-base-size) * 2.5);
+  font-weight: 400;
+  color: #030303;
+  font-family: var(--font-helvetica-light);
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: 0;
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .zyt-cargo-type h1 {
+    font-size: calc(var(--cargo-base-size) * 1.5);
+  }
+
+  .zyt-cargo-type h2 {
+    font-size: calc(var(--cargo-base-size) * 0.9 * 1.3);
+  }
+
+  .zyt-cargo-type {
+    font-size: calc(var(--cargo-base-size) * 0.6 * 1.3);
+  }
+
+  .zyt-cargo-type .caption,
+  .zyt-cargo-type figcaption {
+    font-size: calc(var(--cargo-base-size) * 1 * 1.3);
+  }
+}

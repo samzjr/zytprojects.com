@@ -1,66 +1,58 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE_DESCRIPTION } from "@/lib/site";
+import { FEATURED_PROJECTS } from "@/data/portfolioData";
 
 export const metadata: Metadata = {
   title: { absolute: "Sam Z Jr Portfolio" },
   description: SITE_DESCRIPTION,
 };
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { FEATURED_PROJECTS } from "@/data/portfolioData";
 
+// Layout and sizes mirror the Cargo homepage; see src/styles/cargo-home.css.
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Navbar />
+    <div className="cargo-home">
+      <header className="cargo-home__header">
+        <Link href="/" className="cargo-home__logo" aria-label="zytprojects home">
+          <img src="/media/images/zytprojects-logo.png" alt="zytprojects" />
+        </Link>
+        <Link href="/archive" className="cargo-home__nav-link cargo-home__nav-link--archive">
+          Archive
+        </Link>
+        <Link href="/information" className="cargo-home__nav-link cargo-home__nav-link--info">
+          Information
+        </Link>
+      </header>
 
-      <main className="flex-1 px-6 md:px-10 pb-16">
-        {/* Hero Bio Statement */}
-        <section className="py-12 md:py-16 max-w-4xl">
-          <h1 className="text-2xl md:text-[28px] lg:text-[32px] leading-[1.3] text-[#111111] font-normal tracking-tight">
-            Sam Zhan is an{" "}
-            <strong className="font-semibold text-black">industrial designer</strong>{" "}
-            who is driven by curiosity for{" "}
-            <strong className="font-semibold text-black">emerging technologies</strong>{" "}
-            and a passion for creating joyful experiences through{" "}
-            <strong className="font-semibold text-black">physical products</strong>.
-          </h1>
-        </section>
+      <main>
+        <p className="cargo-home__bio">
+          Sam Zhan is an <b>industrial designer </b>who is driven by curiousity for{" "}
+          <b>emerging technologies</b>&nbsp;
+          <br />
+          and a passion for creating joyful experiences through <b>physical products </b>&nbsp;
+        </p>
 
-        {/* 4 Featured Project Cards */}
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pt-4">
+        <section className="cargo-home__gallery">
           {FEATURED_PROJECTS.map((project) => (
-            <Link
-              key={project.slug}
-              href={project.route}
-              className="group block focus:outline-none"
-            >
-              {/* Image Container with Hover Zoom */}
-              <div className="w-full aspect-square bg-[#f6f6f6] rounded-[6px] overflow-hidden mb-4 relative">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover project-card-zoom"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Text Info */}
-              <div className="space-y-1">
-                <h2 className="text-[15px] font-semibold text-black group-hover:opacity-75 transition-opacity">
-                  {project.cardTitle}
-                </h2>
-                <p className="text-[13px] text-neutral-600 leading-snug">
-                  {project.subtitle}
-                </p>
-              </div>
+            <Link key={project.slug} href={project.route}>
+              <img src={project.image} alt={project.cardTitle} />
             </Link>
           ))}
         </section>
-      </main>
 
-      <Footer />
+        <div className="cargo-home__contact">
+          <div>
+            <b>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                Resume
+              </a>
+            </b>
+          </div>
+          <div>
+            <a href="mailto:samzhan1209@gmail.com">samzhan1209@gmail.com</a>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }

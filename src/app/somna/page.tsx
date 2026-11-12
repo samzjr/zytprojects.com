@@ -20,11 +20,9 @@ export default function SomnaPage() {
       nextLabel="Next: Shift"
     >
       <section className="space-y-6">
-        <div className="max-w-2xl space-y-2">
-          <h2 className="text-xl md:text-2xl font-semibold text-black">
-            CPAP therapy is one of the most effective therapies for sleep apnea
-          </h2>
-          <p className="text-neutral-600 text-[15px] leading-relaxed">
+        <div className="max-w-2xl space-y-3">
+          <h2>CPAP therapy is one of the most effective therapies for sleep apnea</h2>
+          <p>
             CPAP therapy treats obstructive sleep apnea by delivering a continuous stream of pressurized air through a mask to keep your airway open while you sleep.
           </p>
         </div>
@@ -38,11 +36,9 @@ export default function SomnaPage() {
       </section>
 
       <section className="space-y-6">
-        <div className="max-w-2xl space-y-2">
-          <h2 className="text-xl md:text-2xl font-semibold text-black">
-            Evolution of CPAP machines
-          </h2>
-          <p className="text-neutral-600 text-[15px] leading-relaxed">
+        <div className="max-w-2xl space-y-3">
+          <h2>Evolution of CPAP machines</h2>
+          <p>
             Historically full of bulky home medical devices. Newer models have a smaller footprint, however the designs remain strictly clinical and medical.
           </p>
         </div>
@@ -61,9 +57,7 @@ export default function SomnaPage() {
       </section>
 
       <section className="space-y-8">
-        <h2 className="text-xl md:text-2xl font-semibold text-black">
-          Existing Problems &amp; Home Environment Disconnect
-        </h2>
+        <h2>Existing Problems &amp; Home Environment Disconnect</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="space-y-2">
             <div className="h-48 rounded-[6px] overflow-hidden bg-[#f6f6f6] mb-3">
@@ -73,8 +67,8 @@ export default function SomnaPage() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <h3 className="font-semibold text-black text-[15px]">Big footprint</h3>
-            <p className="text-neutral-600 text-sm">
+            <h3>Big footprint</h3>
+            <p>
               A standard CPAP machine takes up most of the space on a nightstand, leaving no room for other items.
             </p>
           </div>
@@ -86,8 +80,8 @@ export default function SomnaPage() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <h3 className="font-semibold text-black text-[15px]">Dedicated travel CPAP</h3>
-            <p className="text-neutral-600 text-sm">
+            <h3>Dedicated travel CPAP</h3>
+            <p>
               People have to purchase a separate CPAP machine for travel due to excessive bulk.
             </p>
           </div>
@@ -99,8 +93,8 @@ export default function SomnaPage() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <h3 className="font-semibold text-black text-[15px]">Loss of dignity</h3>
-            <p className="text-neutral-600 text-sm">
+            <h3>Loss of dignity</h3>
+            <p>
               Some users DIY storage and custom modifications to hide the clinical device in the bedroom.
             </p>
           </div>
@@ -108,15 +102,13 @@ export default function SomnaPage() {
       </section>
 
       <div className="py-12 border-y border-neutral-100 text-center">
-        <p className="text-2xl md:text-3xl font-medium tracking-tight text-neutral-900 max-w-2xl mx-auto">
+        <h2 className="max-w-2xl mx-auto">
           “What if the CPAP machine was designed to fit into your home in the first place?”
-        </p>
+        </h2>
       </div>
 
       <section className="space-y-6">
-        <h2 className="text-xl md:text-2xl font-semibold text-black">
-          Ideation &amp; Form Development
-        </h2>
+        <h2>Ideation &amp; Form Development</h2>
         <img
           src="/media/images/Untitled_Artwork-10.jpg"
           alt="Ideation sketches"
@@ -142,11 +134,9 @@ export default function SomnaPage() {
       </section>
 
       <section className="space-y-8">
-        <div className="max-w-2xl space-y-2">
-          <h2 className="text-xl md:text-2xl font-semibold text-black">
-            Physical Touchpoints &amp; Mechanism Refinement
-          </h2>
-          <p className="text-neutral-600 text-[15px] leading-relaxed">
+        <div className="max-w-2xl space-y-3">
+          <h2>Physical Touchpoints &amp; Mechanism Refinement</h2>
+          <p>
             Developing tactile and intuitive touchpoints: a magnetic removable humidifier tank, fabric pull-tabs, and a mechanical rotary control knob.
           </p>
         </div>
@@ -160,8 +150,8 @@ export default function SomnaPage() {
               playsInline
               className="w-full aspect-[4/5] object-cover rounded-[6px] bg-neutral-100"
             />
-            <h3 className="font-semibold text-black text-[15px]">Humidifier tank removal</h3>
-            <p className="text-neutral-600 text-sm">Press and remove cleanly from the body.</p>
+            <h3>Humidifier tank removal</h3>
+            <p>Press and remove cleanly from the body.</p>
           </div>
           <div className="space-y-3">
             <video
@@ -172,8 +162,8 @@ export default function SomnaPage() {
               playsInline
               className="w-full aspect-[4/5] object-cover rounded-[6px] bg-neutral-100"
             />
-            <h3 className="font-semibold text-black text-[15px]">Humidifier tank lid</h3>
-            <p className="text-neutral-600 text-sm">Accessing the water tank via the fabric pull-tab.</p>
+            <h3>Humidifier tank lid</h3>
+            <p>Accessing the water tank via the fabric pull-tab.</p>
           </div>
           <div className="space-y-3">
             <video
@@ -184,18 +174,18 @@ export default function SomnaPage() {
               playsInline
               className="w-full aspect-[4/5] object-cover rounded-[6px] bg-neutral-100"
             />
-            <h3 className="font-semibold text-black text-[15px]">Control knob</h3>
-            <p className="text-neutral-600 text-sm">Adjust air temperature and ramp pressure with a simple twisting motion.</p>
+            <h3>Control knob</h3>
+            <p>
+              Adjust air temperature and ramp pressure with a simple twisting motion.
+            </p>
           </div>
         </div>
       </section>
 
       <section className="space-y-6">
-        <div className="max-w-2xl space-y-2">
-          <h2 className="text-xl md:text-2xl font-semibold text-black">
-            Docked at home, free on the road
-          </h2>
-          <p className="text-neutral-600 text-[15px] leading-relaxed">
+        <div className="max-w-2xl space-y-3">
+          <h2>Docked at home, free on the road</h2>
+          <p>
             One machine for both home and travel. The compact core motor slides out effortlessly to fit inside any carry-on luggage.
           </p>
         </div>

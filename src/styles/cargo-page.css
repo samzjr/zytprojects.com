@@ -1,0 +1,181 @@
+/*
+ * Cargo's page building blocks, reverse-engineered from zytprojects.com (desktop).
+ * Shared by every page rebuilt from Cargo. See AGENTS.md for the rules.
+ *
+ *   --b    Cargo's base unit: 1.44% of the window height.
+ *   --fit  Tallest a media item may be (78.26% of window height). Cargo caps each
+ *          image's width at --fit × its aspect ratio, so tall/square images
+ *          never get taller than this.
+ */
+
+:root {
+  --b: 1.44vh;
+}
+
+/* ---------- Header (Cargo's "nav-bar" page, identical on every page) ---------- */
+
+.cg-header {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: start;
+  box-sizing: border-box;
+  height: calc(var(--b) * 16.07);
+  padding-top: calc(var(--b) * 6.8);
+}
+
+.cg-header__logo {
+  grid-column: 1 / span 1;
+  display: block;
+}
+
+.cg-header__logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cg-header__link {
+  font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: calc(var(--b) * 1.65);
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.85);
+  text-decoration: none;
+  text-align: right;
+  padding-right: var(--b);
+}
+
+.cg-header__link--archive {
+  grid-column: 9 / span 1;
+}
+
+.cg-header__link--info {
+  grid-column: 11 / span 2;
+}
+
+/* ---------- Page ---------- */
+
+.cg-page {
+  --fit: calc(var(--b) * 54.346);
+  /* bottom: the space Cargo's (empty) footer overlay reserves */
+  padding: 0 calc(var(--b) * 6) calc(var(--b) * 10.1);
+  background: #fff;
+}
+
+/* Cargo's "bodycopy": every element's size = --font-scale × its style's --font-size */
+.cg-body {
+  display: block;
+  --font-scale: 1;
+  --font-size: calc(var(--b) * 1.5);
+  font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #000;
+  overflow-wrap: break-word;
+}
+
+.cg-body,
+.cg-body * {
+  font-size: calc(var(--font-scale) * var(--font-size));
+}
+
+.cg-body b {
+  font-weight: 700;
+}
+
+.cg-body h1 {
+  --font-size: calc(var(--b) * 3.5);
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.85);
+  margin: 0;
+}
+
+.cg-body h2 {
+  --font-size: calc(var(--b) * 2.5);
+  font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #000;
+  margin: 0;
+}
+
+.cg-body .bodytext {
+  --font-size: calc(var(--b) * 1.65);
+  display: block;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.cg-body .caption {
+  --font-size: calc(var(--b) * 2.5);
+  display: block;
+  width: 100%;
+  margin-top: 0.5em;
+  line-height: 1.25;
+  color: #030303;
+}
+
+/* ---------- Rows: a 12-column grid; the gap is the row's gutter (default 1 unit) ---------- */
+
+.cg-set {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: calc(var(--b) * var(--gutter, 1));
+  align-items: stretch;
+}
+
+/* Cargo adds the gutter as top margin when a row directly follows another row */
+.cg-set + .cg-set {
+  margin-top: calc(var(--b) * var(--gutter, 1));
+}
+
+.cg-unit {
+  display: block;
+  min-width: 0;
+}
+
+/* ---------- Media (images and videos) ---------- */
+
+.cg-media {
+  display: inline-flex;
+  flex-direction: column;
+  vertical-align: bottom;
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--fit) * var(--ar));
+  margin: 0;
+  padding: 0;
+}
+
+.cg-media__frame {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: calc(100% / var(--ar));
+}
+
+.cg-media__frame > img,
+.cg-media__frame > video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Gallery: 3 equal columns ---------- */
+
+.cg-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: calc(var(--b) * var(--gutter, 1));
+  align-items: start;
+}
+
+.cg-gallery .caption {
+  margin-bottom: 2em;
+}

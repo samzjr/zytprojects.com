@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE_DESCRIPTION } from "@/lib/site";
 import { FEATURED_PROJECTS } from "@/data/portfolioData";
+import CargoHeader from "@/components/cargo/CargoHeader";
 
 export const metadata: Metadata = {
   title: { absolute: "Sam Z Jr Portfolio" },
@@ -12,17 +13,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="cargo-home">
-      <header className="cargo-home__header">
-        <Link href="/" className="cargo-home__logo" aria-label="zytprojects home">
-          <img src="/media/images/zytprojects-logo.png" alt="zytprojects" />
-        </Link>
-        <Link href="/archive" className="cargo-home__nav-link cargo-home__nav-link--archive">
-          Archive
-        </Link>
-        <Link href="/information" className="cargo-home__nav-link cargo-home__nav-link--info">
-          Information
-        </Link>
-      </header>
+      <CargoHeader />
 
       <main>
         <p className="cargo-home__bio">

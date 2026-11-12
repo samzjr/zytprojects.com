@@ -22,44 +22,7 @@
   font-weight: 700;
 }
 
-/* Header: logo on the left, Archive / Information right-aligned on a 12-column grid */
-.cargo-home__header {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  align-items: start;
-  box-sizing: border-box;
-  height: calc(var(--b) * 16.07);
-  padding-top: calc(var(--b) * 6.8);
-}
-
-.cargo-home__logo {
-  grid-column: 1 / span 1;
-  display: block;
-  width: 100%;
-}
-
-.cargo-home__logo img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.cargo-home__nav-link {
-  font-size: calc(var(--b) * 1.65);
-  line-height: 1.5;
-  color: rgba(0, 0, 0, 0.85);
-  text-decoration: none;
-  text-align: right;
-  padding-right: var(--b);
-}
-
-.cargo-home__nav-link--archive {
-  grid-column: 9 / span 1;
-}
-
-.cargo-home__nav-link--info {
-  grid-column: 11 / span 2;
-}
+/* Header: see .cg-header in cargo-page.css (shared by all pages) */
 
 /* Intro sentence: spans 8 of 12 columns */
 .cargo-home__bio {

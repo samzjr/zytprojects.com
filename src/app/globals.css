@@ -3,6 +3,7 @@
 @import "../styles/cargo-page.css";
 @import "../styles/home.css";
 @import "../styles/intro.css";
+@import "../styles/project.css";
 
 @source "../**/*.{js,ts,jsx,tsx,mdx}";
 @source "../../public/**/*.html";

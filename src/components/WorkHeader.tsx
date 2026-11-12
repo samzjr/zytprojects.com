@@ -7,9 +7,18 @@ export default function WorkHeader() {
       <Link href="/" className="home__logo" aria-label="zytprojects home">
         <img src="/media/images/zytprojects-logo.png" alt="zytprojects" />
       </Link>
-      <Link href="/information" className="home__link">
-        about
-      </Link>
+      <nav className="home__nav" aria-label="Site">
+        <a
+          href="/resume.pdf"
+          className="home__link"
+          download="Sam-Zhan-Resume.pdf"
+        >
+          resume
+        </a>
+        <Link href="/information" className="home__link">
+          about
+        </Link>
+      </nav>
     </header>
   );
 }

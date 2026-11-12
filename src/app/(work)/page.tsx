@@ -36,13 +36,6 @@ export default function Home() {
           </Link>
         ))}
       </main>
-
-      <footer className="home__contact">
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-          <b>Resume</b>
-        </a>
-        <a href="mailto:samzhan1209@gmail.com">samzhan1209@gmail.com</a>
-      </footer>
     </div>
   );
 }

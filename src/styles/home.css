@@ -25,8 +25,14 @@
 
 .home__logo img {
   display: block;
-  height: 24px;
+  height: 30px;
   width: auto;
+}
+
+.home__nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .home__link {
@@ -165,7 +171,7 @@
 }
 
 .home-card:hover .home-card__label {
-  background: #ff5b00;
+  background: #000;
   color: #fff;
 }
 
@@ -192,26 +198,6 @@
 
 .floating-bar__tab.is-active .floating-bar__count {
   color: rgba(0, 0, 0, 0.45);
-}
-
-/* ---------- Contact ---------- */
-
-.home__contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 64px 0 48px;
-  font-size: 15px;
-}
-
-.home__contact a {
-  color: var(--home-text);
-  text-decoration: none;
-}
-
-.home__contact a:hover {
-  opacity: 0.6;
 }
 
 /* Same top row on pages outside .home (e.g. Archive) */

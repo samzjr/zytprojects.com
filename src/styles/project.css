@@ -1,0 +1,77 @@
+/*
+ * Project pages: homepage header on top + floating Overview / Behind the scenes bar,
+ * with the homepage's type and edges (overrides the Cargo sizes in cargo-page.css).
+ * (Bar look comes from .floating-bar in home.css.)
+ */
+
+/* ---------- Edges: same 8px margin as the homepage ---------- */
+
+.cg-page {
+  --project-gap: 8px;
+  padding: 0 var(--project-gap) 96px;
+}
+
+/* Homepage header sits exactly where it does on the homepage, with room above the hero */
+.cg-page > .home-header-wrap {
+  margin: 0 calc(var(--project-gap) * -1) 24px;
+}
+
+/* ---------- Type: homepage font and sizes ---------- */
+
+.cg-page .cg-body {
+  --font-size: 15px; /* body text, like the homepage */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.cg-page .cg-body h1 {
+  --font-size: 30px;
+  font-family: inherit;
+}
+
+.cg-page .cg-body h2,
+.cg-page .cg-body .quote {
+  --font-size: 24px; /* section headings */
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.cg-page .cg-body .bodytext,
+.cg-page .cg-body .caption {
+  --font-size: 15px;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+/* Cargo hard-coded some caption text at 24px/20px; bring it to the body size */
+.cg-page .cg-body [style*="font-size"] {
+  font-size: calc(var(--font-scale) * 15px) !important;
+}
+
+.cg-page .cg-body b {
+  font-weight: 600;
+}
+
+/* ---------- Media: same rounded corners as the homepage cards ---------- */
+
+.cg-page .cg-media__frame,
+.cg-page .cg-slideshow {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Wider tabs for “Behind the scenes” (indicator step must match ProjectViews.tsx) */
+.floating-bar--project {
+  --floating-tab-w: 200px;
+}
+
+/* ---------- Bar tabs are buttons here (links on the homepage) ---------- */
+
+button.floating-bar__tab {
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}

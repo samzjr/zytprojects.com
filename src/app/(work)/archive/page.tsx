@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
+import WorkHeader from "@/components/WorkHeader";
 
 export const metadata: Metadata = {
   title: "Archive",
@@ -11,7 +11,9 @@ import { ARCHIVE_ITEMS } from "@/data/portfolioData";
 export default function ArchivePage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <Navbar />
+      <div className="home-header-wrap">
+        <WorkHeader />
+      </div>
 
       <main className="flex-1 px-6 md:px-10 pb-20">
         {/* Banner / Title */}

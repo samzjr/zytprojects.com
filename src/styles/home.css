@@ -1,0 +1,225 @@
+/*
+ * Homepage: logo top-left, floating Selected / Archive bar, two-column project cards.
+ * (Replaces the Cargo-matched homepage; project pages still use cargo-page.css.)
+ */
+
+.home {
+  --home-gap: 8px;
+  --home-text: rgba(0, 0, 0, 0.85);
+  min-height: 100vh;
+  padding: 0 var(--home-gap) var(--home-gap);
+  background: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--home-text);
+}
+
+/* ---------- Top row: logo left, Information right ---------- */
+
+.home__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 6px;
+}
+
+.home__logo img {
+  display: block;
+  height: 24px;
+  width: auto;
+}
+
+.home__link {
+  font-size: 15px;
+  color: var(--home-text);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.home__link:hover {
+  opacity: 0.6;
+}
+
+/* ---------- Floating bar ---------- */
+
+.floating-bar {
+  --floating-tab-w: 168px;
+  --floating-tab-h: 30px;
+  --floating-tab-gap: 3px;
+  --floating-tab-step: calc(var(--floating-tab-w) + var(--floating-tab-gap));
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  gap: var(--floating-tab-gap);
+  padding: 3px;
+  border-radius: 10px;
+  background: rgba(228, 228, 228, 0.72);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  isolation: isolate;
+}
+
+.floating-bar__indicator {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 0;
+  width: var(--floating-tab-w);
+  height: var(--floating-tab-h);
+  border-radius: 7px;
+  background: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-bar__indicator {
+    transition-duration: 0.01ms;
+  }
+}
+
+.floating-bar__tab {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--floating-tab-w);
+  height: var(--floating-tab-h);
+  padding: 0 10px;
+  border-radius: 7px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.55);
+  text-decoration: none;
+  background: transparent;
+  transition: color 0.25s;
+}
+
+.floating-bar__tab:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.floating-bar__tab.is-active {
+  color: #111;
+}
+
+.floating-bar__count {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.4);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Project cards ---------- */
+
+.home__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--home-gap);
+}
+
+.home-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #f4f4f4;
+}
+
+.home-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-card:hover img {
+  transform: scale(1.04);
+}
+
+.home-card__label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 6px 10px 6px 11px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+  line-height: 1.2;
+  color: #111;
+  transition:
+    background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.35s ease;
+}
+
+.home-card:hover .home-card__label {
+  background: #ff5b00;
+  color: #fff;
+}
+
+.home-card__dot {
+  color: rgba(0, 0, 0, 0.35);
+  transition: color 0.35s ease;
+}
+
+.home-card:hover .home-card__dot {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.home-card__arrow {
+  color: rgba(0, 0, 0, 0.45);
+  transition:
+    transform 0.2s,
+    color 0.35s ease;
+}
+
+.home-card:hover .home-card__arrow {
+  transform: translateX(2px);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.floating-bar__tab.is-active .floating-bar__count {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- Contact ---------- */
+
+.home__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 64px 0 48px;
+  font-size: 15px;
+}
+
+.home__contact a {
+  color: var(--home-text);
+  text-decoration: none;
+}
+
+.home__contact a:hover {
+  opacity: 0.6;
+}
+
+/* Same top row on pages outside .home (e.g. Archive) */
+.home-header-wrap {
+  padding: 0 8px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.home-header-wrap .home__link {
+  color: rgba(0, 0, 0, 0.85);
+}

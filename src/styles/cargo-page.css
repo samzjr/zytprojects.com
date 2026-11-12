@@ -108,13 +108,32 @@
   color: rgba(0, 0, 0, 0.85);
 }
 
+.cg-body .quote {
+  --font-size: calc(var(--b) * 2.5);
+  display: block;
+  line-height: 1.2;
+  color: #000;
+}
+
+/* Cargo sets this in Diatype (Cargo-only font); it's only used on empty elements */
+.cg-body .subtitle- {
+  --font-size: calc(var(--b) * 2.75);
+  display: block;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.75);
+}
+
 .cg-body .caption {
   --font-size: calc(var(--b) * 2.5);
   display: block;
-  width: 100%;
-  margin-top: 0.5em;
   line-height: 1.25;
   color: #030303;
+}
+
+/* Only captions under media get the half-line gap (Cargo: media-item .caption) */
+.cg-media > .caption {
+  width: 100%;
+  margin-top: 0.5em;
 }
 
 /* ---------- Rows: a 12-column grid; the gap is the row's gutter (default 1 unit) ---------- */
@@ -167,15 +186,62 @@
   object-fit: cover;
 }
 
-/* ---------- Gallery: 3 equal columns ---------- */
+/* ---------- Galleries ---------- */
 
+/* Columnized: equal columns, items top-aligned */
 .cg-gallery {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--columns, 3), minmax(0, 1fr));
   column-gap: calc(var(--b) * var(--gutter, 1));
   align-items: start;
 }
 
-.cg-gallery .caption {
+/* Grid: equal columns and rows, gutter both ways */
+.cg-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--columns, 3), minmax(0, 1fr));
+  gap: calc(var(--b) * var(--gutter, 1));
+  align-items: start;
+}
+
+/* Justified: one row, equal heights (item widths set inline from aspect ratio) */
+.cg-justify {
+  display: flex;
+  align-items: stretch;
+  gap: calc(var(--b) * var(--gutter, 1));
+}
+
+/* Cargo stretches every item to the tallest one in the row */
+.cg-justify > div > .cg-media {
+  height: 100%;
+}
+
+/* Inside galleries the gallery decides the size, not the item's own cap */
+.cg-gallery .cg-media,
+.cg-grid .cg-media,
+.cg-justify .cg-media {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.cg-gallery .cg-media > .caption,
+.cg-grid .cg-media > .caption,
+.cg-justify .cg-media > .caption {
   margin-bottom: 2em;
+}
+
+/* Slideshow: fixed-height box (50 units), slides stacked and fitted, current one visible */
+.cg-slideshow {
+  position: relative;
+  width: 100%;
+  height: calc(var(--b) * 50);
+  cursor: pointer;
+}
+
+.cg-slideshow > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
